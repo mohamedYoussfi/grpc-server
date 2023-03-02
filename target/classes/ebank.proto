@@ -1,0 +1,19 @@
+syntax="proto3";
+option java_package="net.youssfi.stubs";
+service BankService{
+  rpc convert(ConvertCurrencyRequest) returns (ConvertCurrencyResponse);
+  rpc performStream(stream ConvertCurrencyRequest) returns (ConvertCurrencyResponse);
+  rpc getStream(ConvertCurrencyRequest) returns (stream ConvertCurrencyResponse);
+  rpc fullStream(stream ConvertCurrencyRequest) returns (stream ConvertCurrencyResponse);
+}
+message ConvertCurrencyRequest{
+  double amount=1;
+  string currencyFrom=2;
+  string currencyTo=3;
+}
+message ConvertCurrencyResponse{
+  double amount=1;
+  string currencyFrom=2;
+  string currencyTo=3;
+  double result=4;
+}
